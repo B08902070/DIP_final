@@ -1,2 +1,6 @@
 imageio
 torch
+scikit-learn
+scikit-image
+opencv-python
+opencv-contrib-python

@@ -51,8 +51,6 @@ def color_transfer(content_img, style_img):
 
     A = np.matmul(half_covar_content, neg_half_covar_style)
     b = mean_content - np.matmul(A, mean_style)
-    print(np.matmul(A, mean_style))
-    print(b)
 
     org_shape = style_img.shape
     style_img = np.reshape(np.array(style_img), (-1, 3))
