@@ -29,6 +29,7 @@ def luminance_only_transfer(content_img, stylized_img):
 
     return cv2.cvtColor(yuv_new_img, cv2.COLOR_YUV2BGR)
 
+
 def main(content_dir, stylized_dir):
     content_dir = Path(content_dir)
     stylized_dir = Path(stylized_dir)
@@ -43,7 +44,7 @@ def main(content_dir, stylized_dir):
 
 
 
-
+"""
 if __name__ == '__main__':
     parser = ArgumentParser()
     
@@ -52,3 +53,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     main(content_dir = args.content_dir, stylized_dir = args.stylized_dir)
+"""

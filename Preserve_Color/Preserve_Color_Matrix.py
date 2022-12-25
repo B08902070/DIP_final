@@ -1,7 +1,7 @@
 import numpy as np
 from argparse import ArgumentParser
 from pathlib import Path
-import imageio
+import cv2
 """ 
 the code is the implementation of the paper 'Preserving Color in Neural Artistic Style Transfer' by Gaytz et. al
 the method used here is Image Analogies metioned in the paper
@@ -16,7 +16,8 @@ def get_images_and_names(image_dir):
         name = str(p).split(dir_sep)[-1].split('.')[0]
         names.append(name)
 
-        img = imageio.imread(p)
+        img = cv2.imread(p)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         imgs.append(img)
     return names, imgs
 
@@ -79,7 +80,7 @@ def main(content_dir, style_dir, save_dir):
     for ci in range(len(content_imgs)):
         for si in range(len(style_imgs)):
             new_img = color_transfer(content_img=content_imgs[ci], style_img=style_imgs[si])
-            imageio.imwrite(save_dir / f"{content_names[ci]}-{style_names[si]}.jpg", new_img)
+            cv2.imwrite(save_dir / f"{content_names[ci]}-{style_names[si]}.jpg", new_img)
 
 
 
