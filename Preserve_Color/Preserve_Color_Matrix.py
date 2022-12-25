@@ -68,29 +68,3 @@ def color_transfer(content_img, style_img):
 
 
 
-def main(content_dir, style_dir, save_dir):
-    content_dir = Path(content_dir)
-    style_dir = Path(style_dir)
-    save_dir = Path(save_dir)
-
-    """get names"""
-    content_names, content_imgs = get_images_and_names(content_dir)
-    style_names, style_imgs = get_images_and_names(style_dir)
-    
-    for ci in range(len(content_imgs)):
-        for si in range(len(style_imgs)):
-            new_img = color_transfer(content_img=content_imgs[ci], style_img=style_imgs[si])
-            cv2.imwrite(save_dir / f"{content_names[ci]}-{style_names[si]}.jpg", new_img)
-
-
-
-
-if __name__ == '__main__':
-    parser = ArgumentParser()
-    
-    parser.add_argument("--content_dir", help="the path to the content dir", type=str)
-    parser.add_argument("--style_dir", help="path to the style dir", type=str)
-    parser.add_argument("--save_dir", help="path to the new style dir after color preserve operation", type=str)
-    args = parser.parse_args()
-
-    main(content_dir=args.content_dir, style_dir=args.style_dir, save_dir=args.save_dir)
