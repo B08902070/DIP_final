@@ -13,7 +13,6 @@ class Reversible_Type:
 class Reversible_Transform_Console:
     def __init__(self):
         self.transform_fns = []
-        self.set_forward_backward()
 
     def load_transform_ops(self, transform_fn_name, transform_kwargs):
         transform_fn = getattr(Reversible_Type, transform_fn_name)

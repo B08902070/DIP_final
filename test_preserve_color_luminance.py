@@ -1,6 +1,4 @@
-import imageio
 from pathlib import Path
-import numpy as np
 import cv2
 
 from Preserve_Color.Preserve_Color_Luminance import luminance_only_transfer
