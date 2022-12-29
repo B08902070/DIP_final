@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 from Reversible_Transform.Reversible_Transform_Console import Reversible_Transform_Console
 
 
-from Preserve_Color import Preserve_Color_Luminance, Preserve_Color_Matrix
+from Preserve_Color import Preserve_Color_Luminance
 
 def make_temp_dir(dir_name, img, img_name):
     if os.path.exists(dir_name):

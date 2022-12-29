@@ -9,22 +9,23 @@ output_dir = "./test_reverse_output/"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-img = cv2.imread("LinearStyleTransfer/data/content/1.jpg")
+img = cv2.imread("images/chicago.jpg")
 H, W = img.shape[:2]
 
+
 """Test Reversible Rotate"""
-rot = Reversible_Rotate(45)
+rot = Reversible_Rotate(90)
 rotated_img = rot.forward(img)
-cv2.imwrite(output_dir + "rotate_45_img.jpg", rotated_img)
+cv2.imwrite(output_dir + "rotate_90_img.jpg", rotated_img)
 recover_img = rot.backward(rotated_img)
-cv2.imwrite(output_dir + "recover_rotate_45.jpg", recover_img)
+cv2.imwrite(output_dir + "recover_rotate_90.jpg", recover_img)
 
 """Test Reversible Resize"""
-resize = Reversible_Resize(256)
+resize = Reversible_Resize(128)
 resized_img = resize.forward(img)
-cv2.imwrite(output_dir + "resized_256.jpg", resized_img)
+cv2.imwrite(output_dir + "resized_128.jpg", resized_img)
 recover_img = resize.backward(resized_img)
-cv2.imwrite(output_dir + "recover_resize_256.jpg", recover_img)
+cv2.imwrite(output_dir + "recover_resize_128.jpg", recover_img)
 
 """Test Reversible Swirl"""
 swirl = Reversible_Swirl(center=(H/2, W/2), strength=30, radius=500)
@@ -34,7 +35,7 @@ recover_img = swirl.backward(swirled_img)
 cv2.imwrite(output_dir + "recover_swirl_256.jpg", recover_img)
 
 """Test Reversible wavy"""
-wavy = Reversible_Wavy(horizontal=True)
+wavy = Reversible_Wavy()
 wavy_img = wavy.forward(img)
 cv2.imwrite(output_dir + "wavy.jpg", wavy_img)
 recover_img = wavy.backward(wavy_img)
