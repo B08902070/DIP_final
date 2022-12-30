@@ -28,6 +28,7 @@ class Reversible_Rotate(Reversible_Transform):
 
         # rotate image with the new bounds and translated rotation matrix
         rotated_img = cv2.warpAffine(image, rotation_mat, (bound_w, bound_h))
+        self.new_h, self.new_w = rotated_img.shape[:2]
         return rotated_img
 
     def backward(self, image):
@@ -46,5 +47,6 @@ class Reversible_Rotate(Reversible_Transform):
         rotation_mat[1, 2] += bound_h/2 - image_center[1]
 
         # rotate image with the new bounds and translated rotation matrix
+        image = cv2.resize(image, (self.new_w, self.new_h))
         rotated_img = cv2.warpAffine(image, rotation_mat, (bound_w, bound_h))
         return rotated_img

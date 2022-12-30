@@ -28,15 +28,15 @@ recover_img = resize.backward(resized_img)
 cv2.imwrite(output_dir + "recover_resize_128.jpg", recover_img)
 
 """Test Reversible Swirl"""
-swirl = Reversible_Swirl(center=(H/2, W/2), strength=30, radius=500)
+swirl = Reversible_Swirl(center=(H/2, W/2), strength=30, radius=300)
 swirled_img = swirl.forward(img)
 cv2.imwrite(output_dir + "swirl_100.jpg", swirled_img)
 recover_img = swirl.backward(swirled_img)
 cv2.imwrite(output_dir + "recover_swirl_256.jpg", recover_img)
 
 """Test Reversible wavy"""
-wavy = Reversible_Wavy()
+wavy = Reversible_Wavy(amplitude=15, horizontal=True)
 wavy_img = wavy.forward(img)
-cv2.imwrite(output_dir + "wavy.jpg", wavy_img)
+cv2.imwrite(output_dir + "wavy_horizontal.jpg", wavy_img)
 recover_img = wavy.backward(wavy_img)
-cv2.imwrite(output_dir + "recover_wavy.jpg", recover_img)
+cv2.imwrite(output_dir + "recover_wavy_horizontal.jpg", recover_img)
