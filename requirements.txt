@@ -1,5 +1,11 @@
 imageio
 torch
+numpy
+scipy
+tqdm
+Pillow
+PyYAML
+torchvision
 scikit-learn
 scikit-image
 opencv-python
