@@ -4,9 +4,18 @@
 ## Enviroments
 
 
-#### Linear Style Transfer
+### Linear Style Transfer
 
 please download models.zip and unzip it in the LinearStyleTransfer directory following the instruction in https://github.com/sunshineatnoon/LinearStyleTransfer
+
+### SANet
+
+please download the three pretained model followingthe intraction in https://github.com/GlebSBrykin/SANET
+
+### MCCNet
+
+
+
 
 
 
@@ -17,6 +26,10 @@ please download models.zip and unzip it in the LinearStyleTransfer directory fol
 
 
 ## citation
+
+
+#### For SANet
+No citation info, but the original implementation is https://github.com/GlebSBrykin/SANET
 
 #### For LinearStyleTransfer Implementation
 ```
