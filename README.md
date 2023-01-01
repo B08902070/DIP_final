@@ -25,12 +25,18 @@ pip install -r requirements.txt
 ## How to run
 
 * For Image Style Transfer
-1. put all content images in a folder, default is content/
-2. put all style images in a folder, default is style/
-3. write a json file to specify customize instruction of each content-style pair, run default sytle transform is no config file
-4. run 
+  1. put all content images in a folder, default is content/
+  2. put all style images in a folder, default is style/
+  3. write a json file to specify customize instruction of each content-style pair, run default sytle transform is no config file
+  4. run 
 ```
-python image_style_transfer.py --content <YOUR_CONTENT_DIR> --style_dir <YOUR_STYLE_DIR> --output_dir <YOUR_OUTPUT_DIR> (optional)--cmd_config <CONFIG> (optioanl)--nst_algo <NST_ALGO>
+python image_style_transfer.py --content_dir <YOUR_CONTENT_DIR> --style_dir <YOUR_STYLE_DIR> --output_dir <YOUR_OUTPUT_DIR> (optional)--cmd_config <CONFIG> (optional)--nst_algo <NST_ALGO>
+```
+
+* For video Style Transfer
+run
+```
+python video_style_transfer.py --videoPath <PATH_TO_VIDEO> --stylePATH <PATH_TO_STYLE_IMAGE> --output_dir <PATH_TO_OUTPUT_DIR> (optional)--resize <new_H> <new_W> (optional)--rotate <ANGLE> (optional)--preserve_color (optional)--add_noise (optional)--nst_algo <NST_ALGO>
 ```
 
 
