@@ -1,6 +1,7 @@
 import os
 import torch
 import argparse
+import cv2
 from PIL import Image
 from libs.Loader import Dataset
 from libs.Matrix import MulLayer
@@ -17,10 +18,10 @@ parser.add_argument("--decoder_dir", default='models/dec_r31.pth',
                     help='pre-trained decoder path')
 parser.add_argument("--matrix_dir", default="models/r31.pth",
                     help='path to pre-trained model')
-parser.add_argument("--style", default="data/style/in2.jpg",
+parser.add_argument("--stylePath",
                     help='path to style image')
-parser.add_argument("--content_dir", default="data/videos/content/mountain_2/",
-                    help='path to video frames')
+parser.add_argument("--videoPath",
+                    help='path to video file')
 parser.add_argument('--loadSize', type=int, default=512,
                     help='scale image size')
 parser.add_argument('--fineSize', type=int, default=512,
@@ -48,9 +49,26 @@ def loadImg(imgPath):
                 transforms.Scale(opt.fineSize),
                 transforms.ToTensor()])
     return transform(img)
-styleV = loadImg(opt.style).unsqueeze(0)
+styleV = loadImg(opt.stylePath).unsqueeze(0)
 
-content_dataset = Dataset(opt.content_dir,
+def video_to_frames(video_path, frame_dir):
+    save_dir = frame_dir
+    os.makedirs(save_dir, exist_ok=True)
+
+    cap = cv2.VideoCapture(video_path)
+    frame_num = 0
+    while True:
+        ret, frame = cap.read()
+        if ret is False:
+            break
+        cv2.imwrite(save_dir + "/{:0>3d}.jpg".format(frame_num), frame)
+        frame_num += 1
+    cap.release()
+
+
+tmp_frame_dir = './tmp_frame_dir/'
+video_to_frames(video_path=opt.videoPath, frame_dir=tmp_frame_dir)
+content_dataset = Dataset(tmp_frame_dir,
                           loadSize = opt.loadSize,
                           fineSize = opt.fineSize,
                           test     = True,

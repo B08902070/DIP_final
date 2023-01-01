@@ -5,7 +5,7 @@ import numpy as np
 from Preserve_Color.Preserve_Color_Luminance import luminance_only_transfer
 
 
-content_path = 'images/image_1.jpg'
+content_path = 'content/image_1.jpg'
 stylized_path = 'LinearStyleTransfer/Output/image_1_sketch.png'
 
 content_img = cv2.imread(content_path)
