@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 from argparse import ArgumentParser
 from Reversible_Transform.Reversible_Transform_Console import Reversible_Transform_Console
-
+from Add_noise.add_noise import add_noise
 
 from Preserve_Color import Preserve_Color_Luminance
 
@@ -85,6 +85,12 @@ def image_style_transfer(args):
                 kwargs = RT_dict['kwargs']
                 RT_console.load_transform_ops(fn_name, kwargs)
 
+            """add noise"""
+            content_img = content_imgs[ci]
+            if cmd_dict['add_noise']:
+                content_img = add_noise(content_img)
+
+            """Reversible Transform forward"""
             content_img = RT_console.forward(content_imgs[ci])
             
             """do image style transfer"""

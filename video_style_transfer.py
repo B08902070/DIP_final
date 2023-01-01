@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 from argparse import ArgumentParser
 
+from Add_noise.add_noise import add_noise
 from Reversible_Transform.Reversible_Transform_Console import Reversible_Transform_Console
 from Preserve_Color import Preserve_Color_Luminance
 
@@ -53,6 +54,11 @@ def video_style_transfer(args):
     os.makedirs(output_dir, exist_ok=True)
 
     frames = video_to_frames(video_path)
+
+    """add noise"""
+    if args.add_noise:
+        for i in range(len(frames)):
+            frames[i] = add_noise(frames[i])
 
     RT_console = Reversible_Transform_Console()
     """ Reversible Resize"""
@@ -106,6 +112,7 @@ if __name__ == "__main__":
     parser.add_argument("--resize", help='specify the size if want to apply reversible resize', default=None, nargs="*")
     parser.add_argument('--rotate', help='specify the angle in degree if want to apply reversible rotate', deault=None)
     parser.add_argument('--preserve_color', help='specify is want to apply preserve color transfer', action='store_true')
+    parser.add_argument("--add_noise", help='specify if need to add noise to the video', action="store_true")
     parser.add_argument("--nst_algo", help='choose the transfer method among [LinearStyleTransfer, MCCNet]', type=str, deault='LinearStyleTransfer')
 
     args = parser.parse_args()
