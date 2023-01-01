@@ -3,6 +3,8 @@
 
 ## Enviroments
 
+the code is run on Arch Linux
+
 ### Neural Style Transfer
 Follow the instruction in https://github.com/crowsonkb/style-transfer-pytorch
 
@@ -38,9 +40,6 @@ run
 ```
 python video_style_transfer.py --videoPath <PATH_TO_VIDEO> --stylePATH <PATH_TO_STYLE_IMAGE> --output_dir <PATH_TO_OUTPUT_DIR> (optional)--resize <new_H> <new_W> (optional)--rotate <ANGLE> (optional)--preserve_color (optional)--add_noise (optional)--nst_algo <NST_ALGO>
 ```
-
-
-
 
 
 
