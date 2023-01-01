@@ -24,7 +24,10 @@ def run_style_transfer_algo(algo, content_img, style_img, content_name, style_na
         
         subprocess.run(['python', 'LinearStyleTransfer/TestArtistic.py', f'--contentPath {tmp_content_dir}', 
                         f'--stylePath {tmp_style_dir}', f'--outf {str(output_dir)}/{content_name}_{style_name}.jpg'])
-        
+
+    elif algo == "Gatys":
+        subprocess.run(['Gatys/style_transfer', f'{tmp_content_dir}', 
+                        f'{tmp_style_dir}', f'-o {str(output_dir)}/{content_name}_{style_name}.jpg'])
 
     elif algo == "MCCNet":
         tmp_content_path = f'{content_name}.jpg'
@@ -120,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", help="path to output dir of stylized image", type=str, default='output/')
     parser.add_argument("--cmd_config", help="path to the json file that contain the cmd config of content-style pair",
                          type=str, default=None)
-    parser.add_argument("--nst_algo", help='choose the transfer method among [NST_Gatys, SANet, LinearStyleTransfer, MCCNet]', type=str, deault='LinearStyleTransfer')
+    parser.add_argument("--nst_algo", help='choose the transfer method among [Gatys, SANet, LinearStyleTransfer, MCCNet]', type=str, deault='LinearStyleTransfer')
 
     args = parser.parse_args()
 
