@@ -10,11 +10,11 @@ from libs.models import encoder3,encoder4, encoder5
 from libs.models import decoder3,decoder4, decoder5
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--vgg_dir", default='models/vgg_r41.pth',
+parser.add_argument("--vgg_dir", default='LinearStyleTransfer/models/vgg_r41.pth',
                     help='pre-trained encoder path')
-parser.add_argument("--decoder_dir", default='models/dec_r41.pth',
+parser.add_argument("--decoder_dir", default='LinearStyleTransfer/models/dec_r41.pth',
                     help='pre-trained decoder path')
-parser.add_argument("--matrixPath", default='models/r41.pth',
+parser.add_argument("--matrixPath", default='LinearStyleTransfer/models/r41.pth',
                     help='pre-trained model path')
 parser.add_argument("--stylePath", default="data/style/",
                     help='path to style image')
