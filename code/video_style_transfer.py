@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 
 from Add_noise.add_noise import add_noise
 from Reversible_Transform.Reversible_Transform_Console import Reversible_Transform_Console
-from Preserve_Color import Preserve_Color_Luminance
+from Preserve_Color.Preserve_Color_Luminance import luminance_only_transfer
 
 def get_name(path):
     dir_sep = '\\' if '\\' in str(path) else '/'
@@ -95,7 +95,7 @@ def video_style_transfer(args):
     """Preserve Color"""
     if args.preserve_color:
         for i in range(len(frames)):
-            ret_frames[i] = Preserve_Color_Luminance.luminance_only_transfer(content_img=frames[i], stylized_img=ret_frames[i])
+            ret_frames[i] = luminance_only_transfer(content_img=frames[i], stylized_img=ret_frames[i])
 
     """write to video"""
     frames_to_video(frames=ret_frames, video_path=Path(args.output_dir))
