@@ -82,7 +82,7 @@ def video_style_transfer(args):
     """Video Style Transfer"""
     tmp_save_dir = Path('tmp_save_dir/')
     if tmp_save_dir.exists():
-        subprocess.run(['rm', '-rf', str(tmp_save_dir)], shell=True)
+        subprocess.run([f'rm -rf {str(tmp_save_dir)}'], shell=True)
     os.makedirs(tmp_save_dir)
     run_style_transfer_algo(algo=args.nst_algo, video_path=video_path, style_path=style_path, output_dir=tmp_save_dir)
 
