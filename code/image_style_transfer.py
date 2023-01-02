@@ -27,21 +27,21 @@ def run_style_transfer_algo(algo, content_img, style_img, content_name, style_na
 
     elif algo == "Gatys":
         subprocess.run(['Gatys/style_transfer', f'{tmp_content_dir}', 
-                        f'{tmp_style_dir}', f'-o {str(output_dir)}/{content_name}_{style_name}.jpg'])
+                        f'{tmp_style_dir}', '-o', f'{str(output_dir)}/{content_name}_{style_name}.jpg'])
 
     elif algo == "MCCNet":
         tmp_content_path = f'{content_name}.jpg'
         tmp_style_path = f'{style_name}.jpg'
 
-        subprocess.run(['python', 'MCCNet/test_video.py', f'--content {tmp_content_path}', 
-                        f'--style {tmp_style_path}', f'--output {str(output_dir)}'])
+        subprocess.run(['python', 'MCCNet/test_video.py', '--content', tmp_content_path, 
+                        '--style', tmp_style_path, '--output', str(output_dir)])
 
     elif algo == "SANet":
         tmp_content_path = f'{content_name}.jpg'
         tmp_style_path = f'{style_name}.jpg'
 
-        subprocess.run(['python', 'SANet/Eval.py', f'--content {tmp_content_path}',
-                        f'--style {tmp_style_path}', f'--output {str(output_dir)}'])
+        subprocess.run(['python', 'SANet/Eval.py', '--content', tmp_content_path,
+                        '--style', tmp_style_path, '--output', str(output_dir)])
         
 
 
