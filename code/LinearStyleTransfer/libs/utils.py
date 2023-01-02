@@ -55,23 +55,17 @@ def makeVideo(content,style,props,outf):
     print('Stack transferred frames back to video...')
     layers,height,width = content[0].shape
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-    video = cv2.VideoWriter(os.path.join(outf,'transfer.avi'),fourcc,10.0,(width,height))
-    ori_video = cv2.VideoWriter(os.path.join(outf,'content.avi'),fourcc,10.0,(width,height))
+    video = cv2.VideoWriter(os.path.join(outf, "transfer.avi"),fourcc,10.0,(width,height))
     for j in range(len(content)):
         prop,cont = numpy2cv2(content[j],style,props[j],width,height)
         cv2.imwrite('prop.png',prop)
-        cv2.imwrite('content.png',cont)
         # TODO: this is ugly, fix this
         imgj = cv2.imread('prop.png')
-        imgc = cv2.imread('content.png')
 
         video.write(imgj)
-        ori_video.write(imgc)
         # RGB or BRG, yuks
     video.release()
-    ori_video.release()
     os.remove('prop.png')
-    os.remove('content.png')
     print('Transferred video saved at %s.'%outf)
 
 def print_options(opt):

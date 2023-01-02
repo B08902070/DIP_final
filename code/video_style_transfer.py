@@ -37,12 +37,12 @@ def run_style_transfer_algo(algo, video_path, style_path, output_dir):
     if algo == 'LinearStyleTransfer':
         video_name = get_name(video_path)
         style_name= get_name(style_path)
-        subprocess.run(['python', 'LinearStyleTransfer/TestVideo.py', f'--videoPath {str(video_path)}', 
-                        f'--stylePath {str(style_path)}', f'--outf {str(output_dir)}/{video_name}_{style_name}.mp4'])
+        subprocess.run(['python', 'LinearStyleTransfer/TestVideo.py', '--videoPath', str(video_path), 
+                        '--stylePath', str(style_path), '--outf',  f'{str(output_dir)}/{video_name}_{style_name}.mp4'])
 
     elif algo == "MCCNet":
-        subprocess.run(['python', 'MCCNet/test_video.py', f'--content {str(video_path)}', 
-                        f'--style {str(style_path)}', f'--output {str(output_dir)}'])
+        subprocess.run(['python', 'MCCNet/test_video.py', '--content', str(video_path), 
+                        '--style', str(style_path), '--output', str(output_dir)])
 
 
 
