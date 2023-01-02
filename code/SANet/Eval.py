@@ -171,9 +171,9 @@ parser.add_argument('--style', type=str ,default=None,
                     images separated by commas if you want to do style \
                     interpolation or spatial control')
 parser.add_argument('--steps', type=str, default = 1)
-parser.add_argument('--vgg', type=str, default = 'vgg_normalised.pth')
-parser.add_argument('--decoder', type=str, default = 'decoder_iter_500000.pth')
-parser.add_argument('--transform', type=str, default = 'transformer_iter_500000.pth')
+parser.add_argument('--vgg', type=str, default = 'SANet/vgg_normalised.pth')
+parser.add_argument('--decoder', type=str, default = 'SANet/decoder_iter_500000.pth')
+parser.add_argument('--transform', type=str, default = 'SANet/transformer_iter_500000.pth')
 
 # Additional options
 parser.add_argument('--save_ext', default = '.jpg',
