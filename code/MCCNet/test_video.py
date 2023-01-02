@@ -224,10 +224,10 @@ def create_args():
                         help='Directory path to a batch of style images')
     parser.add_argument('--output', type=str, default='output',
                         help='Directory to save the output image(s)')
-    parser.add_argument('--decoder_path', type=str, default='./experiments/decoder_iter_160000.pth')
-    parser.add_argument('--transform_path', type=str, default='./experiments/mcc_module_iter_160000.pth')
-    parser.add_argument('--vgg_path', type=str, default='./experiments/vgg_normalised.pth')
-    parser.add_argument('--yaml_path', type=str, default='./yaml/test.yaml')
+    parser.add_argument('--decoder_path', type=str, default='MCCNet/experiments/decoder_iter_160000.pth')
+    parser.add_argument('--transform_path', type=str, default='MCCNet/experiments/mcc_module_iter_160000.pth')
+    parser.add_argument('--vgg_path', type=str, default='MCCNet/experiments/vgg_normalised.pth')
+    parser.add_argument('--yaml_path', type=str, default='MCCNet/yaml/test.yaml')
     parser.add_argument('--a', type=float, default=1.0)
     parser.add_argument('--style_interpolation_weights', type=str, default="")
 
