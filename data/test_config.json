@@ -3,15 +3,21 @@
         "1":{
             "preserve_color": true,
             "add_noise":true,
-            "Reversible Transform":{
-                "Resize": {
-                    "size1": 256,
-                    "size2": 256
+            "Reversible Transform":[
+                {
+                    "fn_name": "Resize",
+                    "kwargs": {
+                        "size1":256,
+                        "size2":256
+                    }
                 },
-                "Wavy":{
-                    "amplitude":15
+                {
+                    "fn_name": "Wavy",
+                    "kwargs": {
+                        "amplitude":15
+                    }
                 }
-            }
+            ]
 
         }
 
