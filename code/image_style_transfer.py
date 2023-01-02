@@ -74,7 +74,6 @@ def image_style_transfer(args):
     for ci in range(len(content_imgs)):
         for si in range(len(style_imgs)):
             """ if content-style pair not in command, then do nothing before and after style transfer """
-            print(content_names[ci], ", ", style_names[si])
             if config_dict is None or content_names[ci] not in config_dict.keys():
                 run_style_transfer_algo(args.nst_algo, content_img=content_imgs[ci], style_img=style_imgs[si],
                                         content_name=content_names[ci], style_name=style_names[si], output_dir=output_dir)
