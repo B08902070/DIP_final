@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 
 ## How to run
-
+First, go to the code/ directory. 
 * For Image Style Transfer
   1. put all content images in a folder, default is content/
   2. put all style images in a folder, default is style/
