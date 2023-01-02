@@ -108,12 +108,12 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--video", help="path to video file", type=str)
     parser.add_argument("--style", help="path to style image", type=str)
-    parser.add_argument("--output_dir", help="path to output dir of stylized video", type=str, default='output')
+    parser.add_argument("--output_dir", help="path to output dir of stylized video", type=str, default='../output')
     parser.add_argument("--resize", help='specify the size if want to apply reversible resize', default=None, nargs="*")
     parser.add_argument('--rotate', help='specify the angle in degree if want to apply reversible rotate', default=None)
     parser.add_argument('--preserve_color', help='specify is want to apply preserve color transfer', action='store_true')
     parser.add_argument("--add_noise", help='specify if need to add noise to the video', action="store_true")
-    parser.add_argument("--nst_algo", help='choose the transfer method among [LinearStyleTransfer, MCCNet]', type=str, deault='LinearStyleTransfer')
+    parser.add_argument("--nst_algo", help='choose the transfer method among [LinearStyleTransfer, MCCNet]', type=str, default='LinearStyleTransfer')
 
     args = parser.parse_args()
 
