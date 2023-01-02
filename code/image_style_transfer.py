@@ -74,10 +74,12 @@ def image_style_transfer(args):
             if config_dict is None or content_names[ci] not in config_dict.keys():
                 run_style_transfer_algo(args.nst_algo, content_img=content_imgs[ci], style_img=style_imgs[si],
                                         content_name=content_names[ci], style_name=style_names[si], output_dir=output_dir)
+                continue
             content_dict = config_dict[content_names[ci]]
             if style_names[si] not in content_dict.keys():
                 run_style_transfer_algo(args.nst_algo, content_img=content_imgs[ci], style_img=style_imgs[si],
                                         content_name=content_names[ci], style_name=style_names[si], output_dir=output_dir)
+                continue
 
             
             cmd_dict = content_dict[style_names[si]]
