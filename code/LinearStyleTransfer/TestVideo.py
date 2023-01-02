@@ -12,11 +12,11 @@ import torchvision.transforms as transforms
 from libs.utils import makeVideo, print_options
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--vgg_dir", default='models/vgg_r31.pth',
+parser.add_argument("--vgg_dir", default='LinearStyleTransfer/models/vgg_r31.pth',
                     help='pre-trained encoder path')
-parser.add_argument("--decoder_dir", default='models/dec_r31.pth',
+parser.add_argument("--decoder_dir", default='LinearStyleTransfer/models/dec_r31.pth',
                     help='pre-trained decoder path')
-parser.add_argument("--matrix_dir", default="models/r31.pth",
+parser.add_argument("--matrix_dir", default="LinearStyleTransfer/models/r31.pth",
                     help='path to pre-trained model')
 parser.add_argument("--stylePath",
                     help='path to style image')
