@@ -11,8 +11,7 @@ from Preserve_Color import Preserve_Color_Luminance
 
 def make_temp_dir(dir_name, img, img_name):
     if os.path.exists(dir_name):
-        print("dir exist")
-        subprocess.run(['rm', '-rf', dir_name], shell=True)
+        subprocess.run([f'rm -rf {dir_name}'], shell=True)
     os.makedirs(dir_name)
     cv2.imwrite(f"{dir_name}/{img_name}.jpg", img)
 
