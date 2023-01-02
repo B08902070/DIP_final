@@ -50,6 +50,8 @@ python video_style_transfer.py --video <PATH_TO_VIDEO> --style <PATH_TO_STYLE_IM
 
 ## citation
 
+#### For Gatys Neural Style TRansfer Implementation
+No citation info, but the original implementation is https://github.com/crowsonkb/style-transfer-pytorch
 
 #### For SANet
 No citation info, but the original implementation is https://github.com/GlebSBrykin/SANET
