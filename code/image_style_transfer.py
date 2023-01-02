@@ -123,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", help="path to output dir of stylized image", type=str, default='../output/')
     parser.add_argument("--cmd_config", help="path to the json file that contain the cmd config of content-style pair",
                          type=str, default=None)
-    parser.add_argument("--nst_algo", help='choose the transfer method among [Gatys, SANet, LinearStyleTransfer, MCCNet]', type=str, deault='LinearStyleTransfer')
+    parser.add_argument("--nst_algo", help='choose the transfer method among [Gatys, SANet, LinearStyleTransfer, MCCNet]', type=str, default='LinearStyleTransfer')
 
     args = parser.parse_args()
 
