@@ -91,12 +91,14 @@ def image_style_transfer(args):
             for RT_dict in cmd_dict['Reversible Transform']:
                 fn_name = RT_dict['fn_name']
                 kwargs = RT_dict['kwargs']
+                print(f"do {fn_name}")
                 RT_console.load_transform_ops(fn_name, kwargs)
 
             """add noise"""
             content_img = content_imgs[ci]
             if cmd_dict['add_noise']:
                 content_img = add_noise(content_img)
+                print('add_noise')
 
             """Reversible Transform forward"""
             content_img = RT_console.forward(content_imgs[ci])
@@ -114,6 +116,7 @@ def image_style_transfer(args):
             """ do preserve color transfer if set True in config file"""
             if cmd_dict['preserve_color'] == True:
                 out_img = Preserve_Color_Luminance.luminance_only_transfer(content_img=content_img, stylized_img=stylized_img)
+                print("preserve_color")
             
             cv2.imwrite(stylized_path, out_img)
             
