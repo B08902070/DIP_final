@@ -54,7 +54,7 @@ def get_images_and_names(image_dir):
         name = str(p).split(dir_sep)[-1].split('.')[0]
         names.append(name)
 
-        img = cv2.imread(p)
+        img = cv2.imread(str(p))
         imgs.append(img)
     return names, imgs
 
