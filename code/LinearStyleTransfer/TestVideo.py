@@ -46,7 +46,7 @@ cudnn.benchmark = True
 def loadImg(imgPath):
     img = Image.open(imgPath).convert('RGB')
     transform = transforms.Compose([
-                transforms.Scale(opt.fineSize),
+                transforms.Resize(opt.fineSize),
                 transforms.ToTensor()])
     return transform(img)
 styleV = loadImg(opt.stylePath).unsqueeze(0)
