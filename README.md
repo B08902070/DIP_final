@@ -38,7 +38,7 @@ python image_style_transfer.py --content_dir <YOUR_CONTENT_DIR> --style_dir <YOU
 * For video Style Transfer
 run
 ```
-python video_style_transfer.py --videoPath <PATH_TO_VIDEO> --stylePATH <PATH_TO_STYLE_IMAGE> --output_dir <PATH_TO_OUTPUT_DIR> (optional)--resize <new_H> <new_W> (optional)--rotate <ANGLE> (optional)--preserve_color (optional)--add_noise (optional)--nst_algo <NST_ALGO>
+python video_style_transfer.py --video <PATH_TO_VIDEO> --style <PATH_TO_STYLE_IMAGE> --output_dir <PATH_TO_OUTPUT_DIR> (optional)--resize <new_H> <new_W> (optional)--rotate <ANGLE> (optional)--preserve_color (optional)--add_noise (optional)--nst_algo <NST_ALGO>
 ```
 
 
