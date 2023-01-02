@@ -16,7 +16,7 @@ class Reversible_Transform_Console:
 
     def load_transform_ops(self, transform_fn_name, transform_kwargs):
         transform_fn = getattr(Reversible_Type, transform_fn_name)
-        self.transform_fns.append(transform_fn(transform_kwargs))
+        self.transform_fns.append(transform_fn(**transform_kwargs))
 
     def forward(self, image):
         for fn in self.transform_fns:
