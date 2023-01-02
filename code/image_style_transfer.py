@@ -61,7 +61,7 @@ def get_images_and_names(image_dir):
 def image_style_transfer(args):
     content_dir = Path(args.content_dir)
     style_dir = Path(args.style_dir)
-    config_dict = json.load(args.cmd_config)
+    config_dict = None if args.cmd_config is None else json.load(args.cmd_config)
     output_dir = Path(args.output_dir)
     os.makedirs(output_dir, exist_ok=True)
 
