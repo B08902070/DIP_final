@@ -22,8 +22,8 @@ def run_style_transfer_algo(algo, content_img, style_img, content_name, style_na
         make_temp_dir(tmp_content_dir, content_img, content_name)
         make_temp_dir(tmp_style_dir, style_img, style_name)
         
-        subprocess.run(['python', 'LinearStyleTransfer/TestArtistic.py',
-                    f'--contentPath {tmp_content_dir} --stylePath {tmp_style_dir} --outf {str(output_dir)}/{content_name}_{style_name}.jpg'])
+        subprocess.run(['python', 
+        f'LinearStyleTransfer/TestArtistic.py --contentPath {tmp_content_dir} --stylePath {tmp_style_dir} --outf {str(output_dir)}/{content_name}_{style_name}.jpg'])
 
     elif algo == "Gatys":
         subprocess.run(['Gatys/style_transfer', f'{tmp_content_dir}', 
