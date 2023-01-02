@@ -92,7 +92,7 @@ def image_style_transfer(args):
                 fn_name = RT_dict['fn_name']
                 kwargs = RT_dict['kwargs']
                 print(f"do {fn_name}")
-                RT_console.load_transform_ops(fn_name, kwargs)
+                RT_console.load_transform_ops(fn_name, **kwargs)
 
             """add noise"""
             content_img = content_imgs[ci]

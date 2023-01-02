@@ -7,7 +7,6 @@ class Reversible_Resize(Reversible_Transform):
     def __init__(self, size1, size2=None):
         self.size1 = size1
         self.size2 = size2 if size2 is not None else size1
-        print(type(self.size1), ", ", type(self.size2))
 
     def forward(self, image):
         self.org_H, self.org_W = image.shape[:2]
